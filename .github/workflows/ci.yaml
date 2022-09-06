@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [master, staging, trying]
+    branches: [zh_CN]
   pull_request:
 
 jobs:
@@ -83,32 +83,28 @@ jobs:
         env:
           RUST_VERSION: ${{ matrix.rust }}
 
+      - name: Build the book
+        run: mdbook build
+
+      - name: add a nojekyll file
+        run: touch $GITHUB_WORKSPACE/book/.nojekyll
+
+      - uses: actions/upload-pages-artifact@main
+        with:
+          path: book
+
   deploy:
     runs-on: ubuntu-20.04
 
     needs: [build]
 
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Cache installed binaries
-        uses: actions/cache@v1
-        id: cache-bin
-        with:
-          path: ~/cache-bin
-          key: cache-bin
-
-      - name: Put new bin directory into path
-        run: echo "$HOME/cache-bin" >> $GITHUB_PATH
-
-      - name: Build the book
-        run: mdbook build
-
-      - name: Deploy book
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: book
-          force_orphan: true
+      - uses: actions/deploy-pages@v1
