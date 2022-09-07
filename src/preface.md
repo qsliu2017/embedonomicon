@@ -60,7 +60,7 @@ This book mainly targets to two audiences:
 - People that are curious about the unusual implementation of *runtime* crates like [`cortex-m-rt`],
   [`msp430-rt`] and [`riscv-rt`].
 -->
-- 对某些 *运行时* crate 的特殊实现 (比如 `cortex-m-rt`, `msp430-rt` 和 `riscv-rt`) 感兴趣的读者.
+- 对某些 *运行时* crate 的特殊实现 (比如 [`cortex-m-rt`], [`msp430-rt`] 和 [`riscv-rt`]) 感兴趣的读者.
 
 [`cortex-m-rt`]: https://crates.io/crates/cortex-m-rt
 [`msp430-rt`]: https://crates.io/crates/msp430-rt
@@ -94,7 +94,7 @@ book:
 - All the code in this book uses the 2018 edition. If you are not familiar with
   the 2018 features and idioms check the [`edition guide`].
 -->
-- 书中的所有代码都是 2018 版本的. 如果你不熟悉 2018 版本的特性和术语, 请查阅版本指引 (`edition guide`).
+- 书中的所有代码都是 2018 版本的. 如果你不熟悉 2018 版本的特性和术语, 请查阅[`版本指引`].
 
 <!--
 - Rust 1.31 or a newer toolchain PLUS ARM Cortex-M compilation support.
@@ -119,7 +119,7 @@ book:
 -->
 - 支持 ARM 的 GDB.
 
-[`edition guide`]: https://rust-lang-nursery.github.io/edition-guide/
+[`版本指引`]: https://rust-lang-nursery.github.io/edition-guide/
 
 <!--
 ### Example setup
