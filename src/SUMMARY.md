@@ -1,7 +1,7 @@
 # Summary
 
 [前言](./preface.md)
-- [The smallest `#![no_std]` program](./smallest-no-std.md)
+- [最小无标准库程序 (`#![no_std]`)](./smallest-no-std.md)
 - [Memory layout](./memory-layout.md)
 - [A `main` interface](./main.md)
 - [Exception handling](./exceptions.md)
